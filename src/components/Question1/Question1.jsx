@@ -19,22 +19,32 @@ import ColorComponent from './ColorComponent';
  *    현재색에 맞게 RED/BLUE
  */
 export default function Question1() {
-    // 🔥 state를 정의하세요.
-    const [color, setColor] = useState("RED");
-    // const [color, setColor] = useState(true);
+    // 🔥 state를 정의하세요. 
+    const [color, setColor] = useState("RED");  // 🧸 GOOD! : "default는 red로 설정 잘하셨습니다."
+    /**
+     * 단, 제가 이 파일 제일 아래에 보면 상수(값이 변하지 않는 Data)를 정의해두었습니다.
+       모범답안 제공 : const [color, setColor] = useState(COLOR_RED); 이렇게 변경해주는것이 더욱 좋은 코딩습관입니다.
+     *  */ 
 
     const handleClick = () => {
         // 🔥 버튼 클릭이벤트를 coding해주세요.
-        // alert('ffff')
-        setColor()
-
+        setColor() // 🧸 GOOD! : setColor()를 호출해서 state를 업데이트 해주는것이 맞아요. 
+        /**
+         * 🧸 클릭했을때 Color를 업데이트 해야하는데 
+         * 현재 state가 RED라면 -> Blue로, 그렇지 않다면(현재 blue라면) -> red로 업데이트 하면된다.
+         * 3항 연산자 사용
+         */
     }
 
     return (
         <div>
-            <p> { `🔥 지금 배경색은 ???? 입니다. `}</p>
+            <p> { `🔥 지금 배경색은 ${color} 입니다. `}</p>  {/* 🧸 정답제공 : 현재 color state를 출력합니다. */}
             <button onClick={handleClick}> 색 바꾸기 </button>
-            <ColorComponent color={COLOR}/> {/* 🔥 */}
+            
+            <ColorComponent color={COLOR}/> 
+            {/* 🧸 color라는 props에 COLOR라는 값을 넣어주셨는데, 이 값은 어떤 값인가요?? */}
+            {/* 🧸 저희 현재 파일에 COLOR라는 변수는 어디에도 없습니다.! color만 있죠. */}
+            {/* 🧸 정답제공 : <ColorComponent color={color}/>  */}
         </div>
     );
 }
