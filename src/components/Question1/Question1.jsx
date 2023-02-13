@@ -20,16 +20,21 @@ import ColorComponent from './ColorComponent';
  */
 export default function Question1() {
     // 🔥 state를 정의하세요.
+    const [color, setColor] = useState("RED");
+    // const [color, setColor] = useState(true);
 
     const handleClick = () => {
         // 🔥 버튼 클릭이벤트를 coding해주세요.
+        // alert('ffff')
+        setColor()
+
     }
 
     return (
         <div>
             <p> { `🔥 지금 배경색은 ???? 입니다. `}</p>
-            <button> 색 바꾸기 </button>
-            <ColorComponent /> {/* 🔥 */}
+            <button onClick={handleClick}> 색 바꾸기 </button>
+            <ColorComponent color={COLOR}/> {/* 🔥 */}
         </div>
     );
 }
