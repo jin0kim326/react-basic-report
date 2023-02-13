@@ -1,0 +1,21 @@
+.box {
+    width: 250px;
+    height: 250px;
+    margin: auto;
+    margin-top: 10px;
+    border: 2px solid aqua;
+}
+
+.font {
+    color: aqua;
+    font-size: large;
+}
+
+.bg_red {
+    background-color: red;
+}
+
+.bg_blue {
+    background-color: blue;
+}
+
