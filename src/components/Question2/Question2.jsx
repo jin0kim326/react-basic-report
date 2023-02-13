@@ -29,12 +29,30 @@ import React, { useState } from 'react';
  */
 export default function Question2() {
     // 🔥 Object로 상태 정의하기 
+    const [book, setBook] = useState({
+        title : "리액트 기본 공부법",
+        author : "김예원",
+        description : "예니 책" 
+    });
 
     // 🔥 기본타입으로 상태 정의하기
+    // const [title, setTitle] = useState("리액트 기본 공부법");
+    // const [author, setAuthor] = useState("김예원");
+    // const [description, setDescription] = useState("예니 책");
+
+    const handleClick = () => {
+        const potato = prompt("author을 누구로 수정할래요?");   //ddd
+        setBook(book => {return { ...book, author: potato}});       
+    }
+
+    const handleLog = () => {
+        console.log(book);
+    }
 
     return (
         <div>
-            {/* 이번 Question은 랜더링 하지 않습니다. */}
+            <button onClick={handleClick}>click</button>
+            <button onClick={handleLog}>log</button>
         </div>
     );
 }
