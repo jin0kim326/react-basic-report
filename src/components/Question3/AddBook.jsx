@@ -15,19 +15,30 @@ import React, { useEffect, useState } from 'react';
  * 
  * 2. 도서를 추가하는 이벤트 추가해보세요.
  */
-export default function AddBook() {
+
+export default function AddBook({addBook}) {
 
     const [book, setBook] = useState({title:'', author:'' });
 
     // 💡 hint : controlled Component로 구현하기 위해 " 값이 변경될때 "마다 state update 구현
     const handleChange = (e) => {
-        //🔥
+        //🔥 
+
+        //object distructor
+        const {name, value} = e.target;
+        // const name = e.target.name;
+        // const value = e.target.value;
+        setBook(book=>{return{...book, [name]:value}});        
     }
 
+
+
     return (
-        <form>
-            <input type="text" name='title' placeholder='제목' />
-            <input type="text" name='author' placeholder='저자'/>
+        <form onSubmit={(e)=>addBook(e, book)}>
+            {/* <input type="text" name='title' placeholder='제목' onChange={(e) => setBook(book=>{return{...book, title:e.target.value}}) } />
+            <input type="text" name='author' placeholder='저자' onChange={(e) => setBook({...book, author:e.target.value})}/> */}
+            <input type="text" name='title' placeholder='제목' onChange={handleChange} />
+            <input type="text" name='author' placeholder='저자' onChange={handleChange}/>
             <button type='submit'>추가하기</button>
         </form>
     );

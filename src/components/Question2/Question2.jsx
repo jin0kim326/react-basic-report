@@ -42,7 +42,18 @@ export default function Question2() {
 
     const handleClick = () => {
         const potato = prompt("author을 누구로 수정할래요?");   //ddd
-        setBook(book => {return { ...book, author: potato}});       
+        setBook(book => { return { ...book, author: potato}});       
+
+        // ===
+        // setBook(book => { 
+        //     const changeObj = { ...book, author: potato};
+        //     return changeObj;
+        // });       
+
+
+        // ===
+        // setBook({ ...book, author: potato});     
+        
     }
 
     const handleLog = () => {

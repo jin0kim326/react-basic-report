@@ -6,7 +6,7 @@ import Question3 from './components/Question3/Question3';
 function App() {
   return (
     <div className="App">
-      <Question2 />
+      <Question3 />
     </div>
   );
 }
